@@ -1,0 +1,76 @@
+My Notes
+--------------
+
+Creating a surf board shop application using Node JS, Express, Mongo DB
+
+---------------------------------------------
+Using Trello board to track the work flow
+---------------------------------------------
+    - Use link to view the board - "https://trello.com/b/ajLTsCTl/surf-shop-node-js"
+
+-------------------
+Basic Set up
+-------------------
+    - Create a base set up using express application generator
+        https://expressjs.com/en/starter/generator.html
+
+    - Open cmd prompt in the desired folder
+    
+    - Use the command "npx express-generator --view=ejs" to create a new application
+        -> --view=ejs is used to set the view engine as ejs instead of jade or pug
+
+    - Use the command "npm i" to install all the dependencies in package.json and 
+      create the node_modules folder
+
+    - Install the required dependencies other than the default ones in package.json
+        "npm i body-parser server-favicon mongoose passport"
+
+    - Install the required dev dependencies
+        "npm i -D locus dotenv"
+
+    - Install nodemon to run the Node JS application
+        "npm i -g nodemon"
+
+    - Create additional folders -> controllers, views, middleware
+
+    - Run the application
+       use cmd - "nodemon"
+
+    - Open chrome -> naviagate to "localhost:3000" to view the application
+
+--------------------------------
+Initialize the Git Repo
+--------------------------------
+    - Open cmd prompt
+
+    - Use cmd "git init" to initialize git repo
+
+    - create a .gitignore, .env files  
+    
+    - Add /node_modules and .env in .gitignore file inorder to avoid committing them
+
+    - Use cmd "git add." to stage the files and folders to commit
+
+    - Use cmd -> git commit -m "commit message" to commit the code
+
+    - Use cmd "git push" to publish the repo
+
+------------
+ROUTES
+------------
+    - Home or Index route -> default page or the landing page for the application
+        refer /routes/index.js
+
+   --------------
+    Post Routes
+   --------------
+        - refer /routes/posts.js
+
+    - GET  index           /posts
+    - GET  new             /posts/new
+    - POST  create         /posts
+    - GET  show            /posts/:id
+    - GET  edit            /posts/:id/edit
+    - PUT  update          /posts/:id
+    - DELETE  destroy      /posts/:id
+    
