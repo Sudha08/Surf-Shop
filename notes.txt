@@ -49,15 +49,15 @@ Initialize the Git Repo
     
     - Add /node_modules and .env in .gitignore file inorder to avoid committing them
 
-    - Use cmd "git add." to stage the files and folders to commit
+    - Use cmd "git add ." to stage the files and folders to commit
 
     - Use cmd -> git commit -m "commit message" to commit the code
 
     - Use cmd "git push" to publish the repo
 
-------------
-ROUTES
-------------
+-------------------------------------
+ROUTES - creating RESTFUL routes
+-------------------------------------
     - Home or Index route -> default page or the landing page for the application
         refer /routes/index.js
 
@@ -73,4 +73,27 @@ ROUTES
     - GET  edit            /posts/:id/edit
     - PUT  update          /posts/:id
     - DELETE  destroy      /posts/:id
+
+   ------------------
+    Review Routes
+   ------------------
+        - refer /routes/reviews.js
+
+    - The default route for reviews is /posts/:id/reviews - since each post will have some reviews
+    - The "id" refers to the post id -> needed to add/modify/delete reviews for a specific post
+
+    - const router = express.Router({ mergeParams : true }); -> mergeParams : true -> used to get the post id
+    from the route
+
+    - GET  index           /posts/:id/reviews   
+    - POST  create         /posts/:id/reviews
+    - GET  edit            /posts/:id/reviews/:review_id/edit
+    - PUT  update          /posts/:id/reviews/:review_id
+    - DELETE  destroy      /posts/:id/reviews/:review_id
+
+---------------
+CONVENTIONS
+---------------
+    - Route files are always plural
+    - Model files are always singular
     
