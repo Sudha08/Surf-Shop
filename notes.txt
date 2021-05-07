@@ -91,9 +91,46 @@ ROUTES - creating RESTFUL routes
     - PUT  update          /posts/:id/reviews/:review_id
     - DELETE  destroy      /posts/:id/reviews/:review_id
 
+   ------------------
+    User Routes
+   ------------------
+        - refer /routes/index.js
+
+    - Using "index.js" file to define the index and user routes
+
+    Default index route:
+    ----------------------
+    - GET  index           /
+
+    To Create a user:
+    -----------------
+    - GET  register        /register
+    - POST register        /register
+
+    Login routes:
+    ----------------
+    - GET  login        /login
+    - POST login        /login
+
+    Profile routes: user profile once the user has logged in
+    ----------------------------------------------------------
+    - GET profile        /profile
+    - PUT profile        /profile/:user_id --> To update the details of an existing user
+
+    Forgot password routes:
+    -----------------------
+    - GET  forgot        /forgot
+    - PUT forgot         /forgot
+
+    Reset password routes: Reset normally takes a token
+    ------------------------------------------------------
+    refer tutorial - http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/
+
+    - GET  reset        /reset/:token
+    - PUT  reset        /reset/:token
+
 ---------------
 CONVENTIONS
 ---------------
     - Route files are always plural
     - Model files are always singular
-    
