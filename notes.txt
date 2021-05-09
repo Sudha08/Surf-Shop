@@ -56,7 +56,7 @@ Initialize the Git Repo
     - Use cmd "git push" to publish the repo
 
 -------------------------------------
-ROUTES - creating RESTFUL routes
+SET UP ROUTES - creating RESTFUL routes
 -------------------------------------
     - Home or Index route -> default page or the landing page for the application
         refer /routes/index.js
@@ -129,8 +129,50 @@ ROUTES - creating RESTFUL routes
     - GET  reset        /reset/:token
     - PUT  reset        /reset/:token
 
+--------------------------------
+BUILD DATA MODELS:
+--------------------------------
+
+Create schemas for user, post, reviews
+
+User Schema: refer /models/user.js
+------------------------------------
+  - email - string
+  - password - string
+  - username - string
+  - image - string
+  - posts - array of objects ref Post
+
+- The username and password are not explicitly added in the schema structure as we are using 
+passport-local-mongoose. 
+- passport-local-mongoose will add a username, hash and salt field to store the username, 
+the hashed password and the salt value
+
+Post Schema: refer /models/post.js
+------------------------------------
+  - title - string
+  - price - string
+  - description - string
+  - images - array of strings
+  - location - string
+  - latitude - number
+  - longitude - number
+  - author - object id (ref User)
+  - reviews - array of objects
+
+Review Schema: refer /models/review.js
+----------------------------------------
+  - body - string
+  - author - object id (ref User)
+
 ---------------
 CONVENTIONS
 ---------------
     - Route files are always plural
     - Model files are always singular
+
+    Git -> commit message format -> Present tense verb and a short description
+        Example - Add   index and user routes
+                 -----  ---------------------
+                   |            |
+                   Verb     Description
