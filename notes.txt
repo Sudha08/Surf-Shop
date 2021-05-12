@@ -165,6 +165,30 @@ Review Schema: refer /models/review.js
   - body - string
   - author - object id (ref User)
 
+-------------------------------------
+AUTHENTICATION & SESSION MANAGEMENT
+-------------------------------------
+ - Configure session & passport before mounting routes
+
+ - Install passport-local, passport-local-mongoose, express-session with npm
+    npm i -S passport-local passport-local-mongoose express-session
+ - configure session before configuring passport - refer - link below
+    - https://github.com/expressjs/session
+ - configure passport, passport-local-mongoose in app.js - refer - link below
+    - https://github.com/saintedlama/passport-local-mongoose#simplified-passportpassport-local-configuration
+
+ - Configure Mongoose
+ ---------------------
+    - refer app.js -> connect to the database section
+    - referal link -> https://mongoosejs.com & https://mongoosejs.com/docs/index.html
+
+--------------
+CONTROLLERS
+--------------
+ - refer ./controllers/index.js
+
+ - code for register method - refer -> https://github.com/saintedlama/passport-local-mongoose/blob/master/examples/login/routes.js
+
 ---------------
 CONVENTIONS
 ---------------
@@ -176,3 +200,24 @@ CONVENTIONS
                  -----  ---------------------
                    |            |
                    Verb     Description
+
+--------------
+CODING NOTES:
+--------------
+    - index.js -> routes
+        const { postRegister } = require('../controllers/index');
+    Using the "destructure" feature of ES6 to directly use the object in require instead of
+        const indexObj = require('../controllers/index');
+        const postRegister = indexObj.postRegister;
+
+--------------------------------
+MONGO DB INSTALLATION & SET UP
+--------------------------------
+    - Download the latest stable version of MongoDB from https://www.mongodb.com/try/download/community
+    - Install the .msi - use the default settings
+    - Add environment variable
+        - win seaarch -> edit env variables -> path -> Add -> C:\Program Files\MongoDB\Server\4.4\bin
+    - Set the db path
+        - create a new folder - "db" inside "C:\Program Files\MongoDB\Server\4.4\data"
+    - To run the mongodb in local -> Open a cmd prompt -> type "mongo"
+       
