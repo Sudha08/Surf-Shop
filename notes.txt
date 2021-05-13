@@ -168,27 +168,33 @@ Review Schema: refer /models/review.js
 -------------------------------------
 AUTHENTICATION & SESSION MANAGEMENT
 -------------------------------------
- - Configure session & passport before mounting routes
+    - Configure session & passport before mounting routes
 
- - Install passport-local, passport-local-mongoose, express-session with npm
-    npm i -S passport-local passport-local-mongoose express-session
- - configure session before configuring passport - refer - link below
-    - https://github.com/expressjs/session
- - configure passport, passport-local-mongoose in app.js - refer - link below
-    - https://github.com/saintedlama/passport-local-mongoose#simplified-passportpassport-local-configuration
+    - Install passport-local, passport-local-mongoose, express-session with npm
+        npm i -S passport-local passport-local-mongoose express-session
+    - configure session before configuring passport - refer - link below
+        - https://github.com/expressjs/session
+    - configure passport, passport-local-mongoose in app.js - refer - link below
+        - https://github.com/saintedlama/passport-local-mongoose#simplified-passportpassport-local-configuration
 
- - Configure Mongoose
- ---------------------
-    - refer app.js -> connect to the database section
-    - referal link -> https://mongoosejs.com & https://mongoosejs.com/docs/index.html
+    - Configure Mongoose
+    ---------------------
+        - refer app.js -> connect to the database section
+        - referal link -> https://mongoosejs.com & https://mongoosejs.com/docs/index.html
 
---------------
-CONTROLLERS
---------------
- - refer ./controllers/index.js
+    --------------
+    CONTROLLERS
+    --------------
+    - refer ./controllers/index.js
 
- - code for register method - refer -> https://github.com/saintedlama/passport-local-mongoose/blob/master/examples/login/routes.js
+    - code for register method - refer -> https://github.com/saintedlama/passport-local-mongoose/blob/master/examples/login/routes.js
 
+    - Adding Error Handler:
+    ------------------------
+        - refer ./middleware/index.js to create the error handler, 
+          ./routes/index.js to use the error handler in the postRegister
+        
+        - The error handler takes a method as an argument, hence passing the postRegister method as an arg
 ---------------
 CONVENTIONS
 ---------------
@@ -210,6 +216,12 @@ CODING NOTES:
         const indexObj = require('../controllers/index');
         const postRegister = indexObj.postRegister;
 
+    - const { postRegister } = require('../controllers');
+      const { errorHandler } = require('../middleware');
+    Instead of explicitly specifying index.js, the above statements will refer to the
+    "first file" under the folders
+    The other files inside the folders need to be mentioned explicitly in the require statements
+
 --------------------------------
 MONGO DB INSTALLATION & SET UP
 --------------------------------
@@ -220,4 +232,11 @@ MONGO DB INSTALLATION & SET UP
     - Set the db path
         - create a new folder - "db" inside "C:\Program Files\MongoDB\Server\4.4\data"
     - To run the mongodb in local -> Open a cmd prompt -> type "mongo"
+
+-------------
+OTHER LINKS
+-------------
+    - https://tutorialzine.com/2017/07/javascript-async-await-explained
+    - https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5
+    - https://bluepnume.medium.com/learn-about-promises-before-you-start-using-async-await-eb148164a9c8
        
