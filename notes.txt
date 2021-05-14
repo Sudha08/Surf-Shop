@@ -195,6 +195,25 @@ AUTHENTICATION & SESSION MANAGEMENT
           ./routes/index.js to use the error handler in the postRegister
         
         - The error handler takes a method as an argument, hence passing the postRegister method as an arg
+
+-----------------------
+LOGIN / LOGOUT ROUTES:
+-----------------------
+    - refer ./routes/index.js, ./controllers/index.js
+    - Links for the code - 
+        http://www.passportjs.org/docs/downloads/html/ - configure section
+        https://github.com/saintedlama/passport-local-mongoose/blob/master/examples/login/routes.js 
+            |_ post login, get logout routes
+
+    controllers -> index.js:
+    --------------------------
+        passport.authenticate('local', {
+            successRedirect: '/',
+            failureRedirect: '/login'
+            }) (req, res, next);
+    - Need to explicitly pass req, res, next as it is available only in the scope of postLogin method 
+      and not in the passport.authenticate method
+
 ---------------
 CONVENTIONS
 ---------------
@@ -236,7 +255,11 @@ MONGO DB INSTALLATION & SET UP
 -------------
 OTHER LINKS
 -------------
+    Async Await
     - https://tutorialzine.com/2017/07/javascript-async-await-explained
     - https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5
     - https://bluepnume.medium.com/learn-about-promises-before-you-start-using-async-await-eb148164a9c8
-       
+    
+    Higher Order functions:
+    - https://www.youtube.com/watch?v=BMUiFMZr7vk
+    - https://eloquentjavascript.net/05_higher_order.html#h_xxCc98lOBK
