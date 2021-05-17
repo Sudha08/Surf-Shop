@@ -7,6 +7,7 @@ const favicon = require('serve-favicon');
 const passport = require('passport');
 const session = require('express-session');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 //require models
 const User = require('./models/user');
@@ -33,9 +34,10 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 // app.use(favicon(path.join(__dirname, 'public', 'icons\\favicon.png')));
 
 // configure passport and session

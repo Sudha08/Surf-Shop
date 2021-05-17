@@ -197,7 +197,7 @@ AUTHENTICATION & SESSION MANAGEMENT
         - The error handler takes a method as an argument, hence passing the postRegister method as an arg
 
 -----------------------
-LOGIN / LOGOUT ROUTES:
+LOGIN / LOGOUT ROUTES
 -----------------------
     - refer ./routes/index.js, ./controllers/index.js
     - Links for the code - 
@@ -215,6 +215,31 @@ LOGIN / LOGOUT ROUTES:
       and not in the passport.authenticate method
 
 ---------------
+POST RESOURCE
+---------------
+    - Refer - /views/posts, /routes/posts.js, /controllers/posts.js
+
+    controllers/posts.js:
+     - res.render('posts/new'); - No need to specify the complete the path to views as it is already set 
+     in app.js - refer view engine set up
+     - Also, need not specify 'posts/new.ejs' explicitly as the method is looking for a ejs file by default
+
+    - Edit/Update - refer /views/posts/edit.ejs
+        - <form action="/posts/<%= post.id %>?_method=PUT" method="POST"> - _method=PUT is used to override 
+          the POST method
+        - npm i -S method-override to do the action above
+        - refer app.js to require 'method-override', use the middleware
+        - In the posts.js controller - make the names in the format - name="post[title]"
+          to pass the data as req.body.post instead of req.body - in both edit.ejs, new.ejs
+        - Make the "extended : true" to pass the req.body.post as an object, false will pass it as a string
+
+    - Follow the same method override for DELETE action as well
+
+    refer - https://www.npmjs.com/package/body-parser - for the extended property    
+
+    eval(require('locus')) -> to debug technical errors - https://www.npmjs.com/package/locus
+
+---------------
 CONVENTIONS
 ---------------
     - Route files are always plural
@@ -227,7 +252,7 @@ CONVENTIONS
                    Verb     Description
 
 --------------
-CODING NOTES:
+CODING NOTES
 --------------
     - index.js -> routes
         const { postRegister } = require('../controllers/index');
