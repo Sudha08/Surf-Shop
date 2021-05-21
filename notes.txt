@@ -239,6 +239,42 @@ POST RESOURCE
 
     eval(require('locus')) -> to debug technical errors - https://www.npmjs.com/package/locus
 
+-------------------------------
+IMAGE UPLAOD WITH CLOUDINARY
+-------------------------------
+    - Create a Cloudinary account
+    - Activate account from email (very important)
+    - Install cloudinary and multer
+        npm i -S cloudinary multer
+    - Configure multer for upload in routes file (add image filter)
+        - add middleware -> upload.array('nameattr', maxNum)
+        - nameattr =    name of the new input type = file
+                                                      |  
+    - Add new input to form - attrs -> type = file, name='images' accept='images/*' multiple
+    - Update new view form element with enctype="multipart/form-data"
+    - Require Cloudinary in controller
+    - Configure cloudinary -> Add CLOUDINARY_SECRET in .env file
+    - configure dotenv in app.js
+    - Add for...of loop with cloudinary upload
+    - Update Post Model images with [{ url: String, public_id: String}]
+    - Loop through post.images in "show.ejs" file to display all the images
+    - Test!!!
+
+    - routes/posts.js -> const upload = multer({'dest': 'uploads/'});
+        - Is used to automatically create a new folder 'uploads' in the root directory of the application 
+          and the images chosen for uploading will be added in this folder and then pushed to Cloudinary
+    
+    - add /uploads folder in gitignore file - to avoid having personal images in git repo
+
+Links for reference:
+-----------------------
+
+    - https://cloudinary.com/console/c-4a59653dc859890c4998ad01cbb9a5/welcome
+
+    - https://www.npmjs.com/package/multer
+    - https://www.npmjs.com/package/cloudinary
+    - https://www.npmjs.com/package/dotenv
+
 ---------------
 CONVENTIONS
 ---------------
