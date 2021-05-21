@@ -258,7 +258,6 @@ IMAGE UPLAOD WITH CLOUDINARY
     - Add for...of loop with cloudinary upload
     - Update Post Model images with [{ url: String, public_id: String}]
     - Loop through post.images in "show.ejs" file to display all the images
-    - Test!!!
 
     - routes/posts.js -> const upload = multer({'dest': 'uploads/'});
         - Is used to automatically create a new folder 'uploads' in the root directory of the application 
@@ -266,11 +265,24 @@ IMAGE UPLAOD WITH CLOUDINARY
     
     - add /uploads folder in gitignore file - to avoid having personal images in git repo
 
+    ------------
+    Image Edit
+    ------------
+    # Posts Edit Form
+	- update checkbox name
+	- add enctype to form
+
+    # Posts Update Route
+	- add upload.array()
+
+    refer views/posts/edit.ejs, show.ejs | routes/posts.js | controllers/posts.js (update & destroy)
+
 Links for reference:
 -----------------------
 
     - https://cloudinary.com/console/c-4a59653dc859890c4998ad01cbb9a5/welcome
-
+    - https://cloudinary.com/documentation/node_integration
+    
     - https://www.npmjs.com/package/multer
     - https://www.npmjs.com/package/cloudinary
     - https://www.npmjs.com/package/dotenv
