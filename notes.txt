@@ -240,7 +240,7 @@ POST RESOURCE
     eval(require('locus')) -> to debug technical errors - https://www.npmjs.com/package/locus
 
 -------------------------------
-IMAGE UPLAOD WITH CLOUDINARY
+IMAGE UPLOAD WITH CLOUDINARY
 -------------------------------
     - Create a Cloudinary account
     - Activate account from email (very important)
@@ -277,8 +277,8 @@ IMAGE UPLAOD WITH CLOUDINARY
 
     refer views/posts/edit.ejs, show.ejs | routes/posts.js | controllers/posts.js (update & destroy)
 
-Links for reference:
------------------------
+    Links for reference:
+    -----------------------
 
     - https://cloudinary.com/console/c-4a59653dc859890c4998ad01cbb9a5/welcome
     - https://cloudinary.com/documentation/node_integration
