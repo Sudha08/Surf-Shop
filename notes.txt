@@ -346,6 +346,41 @@ GEOCODING WITH MAPBOX
         - https://docs.mapbox.com/mapbox-gl-js/api/
         - https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
 
+-------------------
+EJS LAYOUTS AND VIEWS
+-------------------
+    Install the package ejs-mate to use the layout and partial features:
+    ---------------------------------------------------------------------
+    npm i -S ejs-mate
+
+    - Create a new folder 'layouts' inside views
+    - Add 2 files 'boilerplate.ejs', 'post-show-layout.ejs'
+    - Add the html code from index.ejs - boilerplate.ejs, show.ejs - post-show-layout.ejs
+    - Separate the CSS & JavaScript from ejs files and create new files inside
+      public/stylesheets and public/javascripts
+    - refer the links below and add the layouts inside the views
+
+        refer app.js, /views -> all the ejs files, /views/layouts -> for the layouts
+
+    Partials:
+    ---------
+    - Mainly used to create features that will be displayed in all the pages. 
+        eg:- Menu bar/ Nav bar, flash messages
+    
+        refer /views/layouts, /views/partials
+
+    Links:
+    ------
+    https://github.com/JacksonTian/ejs-mate
+    https://emmet.io/
+
+    Flash Messages:
+    --------------- 
+    - Update pre-route middleware to check for error or success on the session
+    - Update post-route error handling middleware to console.log() the full err,
+      then set err.message on req.session.error and redirect('back')
+    - Create a partial for flash messages and include it in our layouts
+    - Write some success messages and throw some errors to test it out
 
 ---------------
 CONVENTIONS
